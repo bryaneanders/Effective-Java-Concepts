@@ -44,8 +44,7 @@ public class TotalAddedList<E> extends ForwardingList<E> {
 		super(list);
 	}
 	
-	// Increments the number of elements the list attemtps to add
-	// then calls the ForwardingList add(E e) method
+	// Increments the number of elements the list add attempts
 	@Override
 	public boolean add(E e) throws UnsupportedOperationException,
 								   ClassCastException,
@@ -57,8 +56,8 @@ public class TotalAddedList<E> extends ForwardingList<E> {
 		return super.add(e);
 	}
 	
-	/* Increments the number of elements the list has attemtped 
-	 * to add by the size of the collection then calls the 
+	/* Increments the number of list add attempts 
+	 * by the size of the collection then calls the 
 	 * ForwardingList addAll(Collection<? extends E> c) method. */
 	@Override
 	public boolean addAll(Collection<? extends E> c) throws UnsupportedOperationException,
