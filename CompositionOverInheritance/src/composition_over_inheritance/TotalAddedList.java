@@ -35,8 +35,8 @@ import java.util.List;
  *    forwarding methods. */
 public class TotalAddedList<E> extends ForwardingList<E> {
 
-	/* Counts the total number of elements that have been added
-	 * to the list regardless of whether they are later deleted */
+	/* Counts the total number of attempts to add elements 
+	 * to the list regardless of whether they are later deleted. */
 	private int totalAdded = 0;
 	
 	// The constructor simply allocates a ForwardingList
@@ -44,7 +44,7 @@ public class TotalAddedList<E> extends ForwardingList<E> {
 		super(list);
 	}
 	
-	// Increments the number of elements added to the list
+	// Increments the number of elements the list attemtps to add
 	// then calls the ForwardingList add(E e) method
 	@Override
 	public boolean add(E e) throws UnsupportedOperationException,
@@ -57,8 +57,9 @@ public class TotalAddedList<E> extends ForwardingList<E> {
 		return super.add(e);
 	}
 	
-	/* Increments the number of elements added by the size of the list then
-	 * calls the ForwardingList addAll(Collection<? extends E> c) method. */
+	/* Increments the number of elements the list has attemtped 
+	 * to add by the size of the collection then calls the 
+	 * ForwardingList addAll(Collection<? extends E> c) method. */
 	@Override
 	public boolean addAll(Collection<? extends E> c) throws UnsupportedOperationException,
 														  	ClassCastException,
